@@ -6,6 +6,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:instagram_app/state/auth/backend/authenticator.dart';
 import 'package:instagram_app/state/auth/providers/auth_state_provider.dart';
 import 'package:instagram_app/state/auth/providers/is_logged_in_provider.dart';
+import 'package:instagram_app/views/components/loading/loading_screen.dart';
 import 'firebase_options.dart';
 
 extension Log on Object {
@@ -62,14 +63,17 @@ class MainView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       appBar: AppBar(
         title: const Text('Main View'),
       ),
-      body: Consumer(builder: (context, ref, child) {
+      body: Consumer(builder: (_, ref, child) {
         return TextButton(
           onPressed: () async {
-            await ref.read(authStateProvider.notifier).logOut();
+            LoadingScreen.instance()
+                .show(context: context, text: 'Hello World');
+            // await ref.read(authStateProvider.notifier).logOut();
           },
           child: const Text(
             'Logout',
