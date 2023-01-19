@@ -1,6 +1,4 @@
 import 'dart:async';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram_app/views/components/constants/string.dart';
 import 'package:instagram_app/views/components/loading/loading_screen_controller.dart';

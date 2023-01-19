@@ -6,6 +6,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:instagram_app/state/auth/backend/authenticator.dart';
 import 'package:instagram_app/state/auth/providers/auth_state_provider.dart';
 import 'package:instagram_app/state/auth/providers/is_logged_in_provider.dart';
+import 'package:instagram_app/state/providers/is_loading_provider.dart';
 import 'package:instagram_app/views/components/loading/loading_screen.dart';
 import 'firebase_options.dart';
 
@@ -46,6 +47,15 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       home: Consumer(builder: (context, ref, child) {
+        
+            ref.listen<bool>(isLoadingProvider, (previous, isLoading) {
+          ///isLoading = next value;
+          if (isLoading) {
+            LoadingScreen.instance().show(context: context);
+          } else {
+            LoadingScreen.instance().hide();
+          }
+        });
         final isLoggedIn = ref.watch(isLoggedInProvider);
 
         if (isLoggedIn) {
@@ -63,7 +73,6 @@ class MainView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       appBar: AppBar(
         title: const Text('Main View'),
@@ -71,9 +80,9 @@ class MainView extends StatelessWidget {
       body: Consumer(builder: (_, ref, child) {
         return TextButton(
           onPressed: () async {
-            LoadingScreen.instance()
-                .show(context: context, text: 'Hello World');
-            // await ref.read(authStateProvider.notifier).logOut();
+            
+                
+            await ref.read(authStateProvider.notifier).logOut();
           },
           child: const Text(
             'Logout',

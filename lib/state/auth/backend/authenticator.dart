@@ -72,6 +72,7 @@ class Authenticator {
       log('account not created');
       return AuthResult.aborted;
     }
+    
     log('sign in account details ${signInAccount.toString()}');
     final googleAuth = await signInAccount.authentication;
 
