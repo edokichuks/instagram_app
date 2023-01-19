@@ -8,6 +8,8 @@ import 'package:instagram_app/state/auth/providers/auth_state_provider.dart';
 import 'package:instagram_app/state/auth/providers/is_logged_in_provider.dart';
 import 'package:instagram_app/state/providers/is_loading_provider.dart';
 import 'package:instagram_app/views/components/loading/loading_screen.dart';
+import 'package:instagram_app/views/login/login_view.dart';
+import 'package:instagram_app/views/login/login_view_signup_links.dart';
 import 'firebase_options.dart';
 
 extension Log on Object {
@@ -93,29 +95,3 @@ class MainView extends StatelessWidget {
   }
 }
 
-class LoginView extends ConsumerWidget {
-  const LoginView({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Login View'),
-      ),
-      body: Column(
-        children: [
-          TextButton(
-            onPressed: ref.read(authStateProvider.notifier).loginWithGoogle,
-            child: const Text('Sign In with Google'),
-          ),
-          TextButton(
-            onPressed: ref.read(authStateProvider.notifier).loginWithFacebook,
-            child: const Text('Sign In with Facebook'),
-          ),
-        ],
-      ),
-    );
-  }
-}
