@@ -16,12 +16,10 @@ class UserPostView extends ConsumerWidget {
     final posts = ref.watch(userPostsProvider);
     return RefreshIndicator(
         onRefresh: () {
-          ref.refresh(userPostsProvider);
+          //    ref.refresh(userPostsProvider);
+
           return Future.delayed(
-            const Duration(
-                seconds:
-                    1), //TODO test if this workds () =>      ref.refresh(userPostsProvider)
-          );
+              const Duration(seconds: 1), () => ref.refresh(userPostsProvider));
         },
         child: posts.when(data: (posts) {
           if (posts.isEmpty) {
