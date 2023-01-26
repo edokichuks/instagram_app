@@ -37,7 +37,7 @@ class Strings {
       'Nobody seems to have made any posts yet. why don\'t you take the first step and upload your first post';
   static const enterYourSearchTerm =
       'Enter your search term in order to get started. You can search in the description of all posts available in the system';
-
+  static const String enterSearchTermHere = 'Enter Your Search Term Here';
   static const facebook = 'Facebook ';
   static const facebookSignupUrl = 'https://www.facebook.com/signup';
   static const google = 'Google';
