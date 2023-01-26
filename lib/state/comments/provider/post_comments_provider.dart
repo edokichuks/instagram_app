@@ -33,7 +33,7 @@ final postCommentsProvider = StreamProvider.family
               document.data(),
             ),
           );
-      final result = comments.applySortingfrom(request);
+      final result = comments.applySortingFrom(request);
       controller.sink.add(result);
     });
 

@@ -3,7 +3,7 @@ import 'package:instagram_app/state/comments/models/coment.dart';
 import 'package:instagram_app/state/comments/models/post_comment_requests.dart';
 
 extension Sorting on Iterable<Comment> {
-  Iterable<Comment> applySortingfrom(RequestForPostAndComment request) {
+  Iterable<Comment> applySortingFrom(RequestForPostAndComment request) {
     if (request.sortByCreatedAt) {
       final sortedDocument = toList()
         ..sort(
