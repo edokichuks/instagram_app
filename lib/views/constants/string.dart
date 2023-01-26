@@ -29,7 +29,7 @@ class Strings {
   static const areYouSureYouWantToLogOutOfTheApp =
       'Are you sure you want to log out of the app?';
 
-  static const appName = 'Instant-gram';
+  static const appName = 'Instagram clone';
   static const welcomeToAppName = 'Welcome to ${Strings.appName}';
   static const youHaveNoPosts =
       'You have not made a post yet. Press either the video-upload or the photo-upload buttons to the top of the screen in orfer to upload your first post!';
