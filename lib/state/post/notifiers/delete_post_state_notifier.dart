@@ -3,6 +3,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:instagram_app/state/constants/firebase_collection_name.dart';
 import 'package:instagram_app/state/constants/firebase_field_name.dart';
+import 'package:instagram_app/state/image_upload/extensions/get_collection_name_from_file_type.dart';
 import 'package:instagram_app/state/image_upload/typedef/is_loading.dart';
 import 'package:instagram_app/state/post/models/post.dart';
 import 'package:instagram_app/state/post/typedefs/post_id.dart';
@@ -12,9 +13,9 @@ class DeletePostStateNotifier extends StateNotifier<IsLoading> {
   set isLoading(bool value) => state = value;
 
   Future<bool> deletPost({required Post post}) async {
-
     try {
-    isLoading = true;
+      isLoading = true;
+
       ///delete the post's thumbnail
       await FirebaseStorage.instance
           .ref()
@@ -27,7 +28,7 @@ class DeletePostStateNotifier extends StateNotifier<IsLoading> {
       await FirebaseStorage.instance
           .ref()
           .child(post.userId)
-          .child(post.fileType.name)
+          .child(post.fileType.collectionName)
           .child(post.originalFileStorageId)
           .delete();
 
@@ -44,7 +45,10 @@ class DeletePostStateNotifier extends StateNotifier<IsLoading> {
       //delte all the post finally
       final postIncollection = await FirebaseFirestore.instance
           .collection(FirebaseCollectionName.posts)
-          .where(FieldPath.documentId, isEqualTo: post.postId)
+          .where(
+            FieldPath.documentId,
+            isEqualTo: post.postId,
+          )
           .limit(1)
           .get();
 

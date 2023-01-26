@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:instagram_app/enums.date_sorting.dart';
 import 'package:instagram_app/state/comments/models/post_comment_requests.dart';
@@ -155,8 +153,8 @@ class _PostDetailsViewState extends ConsumerState<PostDetailsView> {
                         ),
                       ],
                     ),
-                  ), 
-                  // add spacing to bottom
+                  ),
+                // add spacing to bottom
                 const SizedBox(
                   height: 100,
                 ),
