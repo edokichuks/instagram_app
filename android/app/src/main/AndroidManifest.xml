@@ -4,7 +4,7 @@
     <queries>
         <provider android:authorities="com.facebook.katana.provider.PlatformProvider" />
     </queries>
-
+<uses-permission android:name="android.permission.INTERNET"/>
    <application
         android:label="Instagram clone"
         android:name="${applicationName}"
@@ -64,7 +64,7 @@
     </application>
 
     
-    <uses-permission android:name="android.permission.INTERNET"/>
+    
 
 
 </manifest>

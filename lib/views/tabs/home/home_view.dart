@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:instagram_app/state/post/providers/all_post_provider.dart';
-import 'package:instagram_app/views/components/animations/empty_contents_animations_view.dart';
 import 'package:instagram_app/views/components/animations/empty_contents_with_text_animation.dart';
 import 'package:instagram_app/views/components/animations/error_animation_views.dart';
 import 'package:instagram_app/views/components/animations/loading_animation_view.dart';
